@@ -2,7 +2,7 @@
 import isFunction from './isFunction';
 export default function isFunctionComponent (virtualDOM){
     const type = virtualDOM.type
-
+    console.log(type,' type..')
     return type && isFunction(virtualDOM) && !(type.prototype && type.prototype.render)
 
 }

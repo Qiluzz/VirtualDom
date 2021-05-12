@@ -1,5 +1,8 @@
 import createElement from './createElement'
+import render from './render'
 
-export default{
-    createElement
+
+export default {
+    createElement,
+    render
 }

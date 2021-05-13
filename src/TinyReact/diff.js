@@ -3,9 +3,11 @@ import updateNodeElement from './updateNodeElement';
 import updateTextNode from './updateTextNode';
 import createDOMElement from './createDOMElement';
 import unmountNode from './unmountNode'
+import diffComponent from './diffComponent';
 
 export default function diff(virtualDOM, container, oldDOM) {
     const oldVirtualDOM = oldDOM && oldDOM._virtualDOM
+    const oldComponent = oldVirtualDOM && oldVirtualDOM.component
     // 判断 oldDOM是否存在
 
     if(!oldDOM){
@@ -15,6 +17,10 @@ export default function diff(virtualDOM, container, oldDOM) {
         // 不同直接替换
         const newElement =  createDOMElement(virtualDOM)
         oldDOM.parentNode.replaceChild(newElement, oldDOM)
+
+    } else if (typeof virtualDOM.type === 'function') {
+        //组件
+        diffComponent(virtualDOM, oldComponent, oldDOM, container)
 
     } else if (oldVirtualDOM && virtualDOM.type === oldVirtualDOM.type) {
         if(virtualDOM.type === 'text'){

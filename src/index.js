@@ -80,6 +80,17 @@ class Alert extends TinyReact.Component {
         console.log('00')
         this.setState({title:'new Title'})
     }
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps')
+    }
+
+    componentWillUpdate(){
+        console.log('componentWillUpdate')
+    }
+
+    componentDidUpdate() {
+      console.log('componentDidUpdate')
+    }
     render(){
         console.log(this.state)
         return (
@@ -98,3 +109,19 @@ class Alert extends TinyReact.Component {
 
 
 TinyReact.render(<Alert name="张三" age={20}/>, root)
+
+// setTimeout(()=>{
+//     TinyReact.render( < Heart title='我是Heart组件'
+//         age = {
+//           52
+//         }
+//         />, root)
+// },2000)
+
+setTimeout(()=>{
+    TinyReact.render( <Alert name = "李四"
+        age = {
+          52
+        }
+        />, root)
+},2000)

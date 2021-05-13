@@ -3,14 +3,16 @@ import TinyReact from "./TinyReact";
 
 const root = document.getElementById('root')
 
-let code = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJbMzIzNDQ3MzA2OTE1ODQwLDMyMzQ0NzMwNzk3MjYwOCwtMSwxMTQsXCJkYl8zX2tleV9zcHJpbmdcIiwxMDAxNDAwMSxudWxsLFwiMVwiLG51bGxdIiwiZXhwIjoxNjIwODEwMzIxLCJpYXQiOjE2MjA4MTAyMDF9.Cck77YGPK02HtyJ6EzwOU4YE5c7InyrXQzY21e4irJhtUcVLdiJl4jSABalDnUlNYuat5kcrcX0bHHK6khmnSQ'
-let page = 'ttk-es-app-personaltaxcode'
-let dljgOrgId = '7063224437462016'
-let loginUserId = '7063218220454912'
+let code = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJbLTEsMzE4NDk4Mzc2MjYzNzQ0LC0xLDExNCxcImRiXzZfa2V5X3NwcmluZ1wiLDEwMDE0MDAxLG51bGwsXCIxXCIsbnVsbF0iLCJleHAiOjE2MjA4NzYwNzQsImlhdCI6MTYyMDg3NTk1NH0.Q8kLRKRy_L9H0d4Pqi0fKcrO06DOPtMA3bRQg04pZFplZDJzC0lU0zgpGB6W8FwMQzd3V33rjSkyVx8_F1vN6Q'
+let page = 'ttk-edf-app-dzgl-portal'
+let dljgOrgId = '318498376263744'
+let loginUserId = '318495088212032'
 
 const openNewTag = () =>{
-    let url = `http://172.16.30.66:8081/#/edfx-app-root/simplelogin?appkey=10014001&page=${page}&code=${code}&orgIds=%5B307270718972800%5D&loginUserId=${loginUserId}&dljgOrgId=${dljgOrgId}`
-    window.open(url)
+    let url = `http://172.16.30.66:8081/#/edfx-app-root/simplelogin?appkey=${10005902}&page=${page}&code=${code}&orgIds=%5B319393849696256%5D&loginUserId=${loginUserId}&dljgOrgId=${dljgOrgId}`
+    console.log(url)
+    
+    // window.open(url)
 }
 const virtualDOM = (
     <div className="container">
@@ -32,7 +34,7 @@ const virtualDOM = (
 const modifyDOM = (
     <div className="container">
         <h1>你好 Tiny React</h1>
-        <h2 data-test="test123">(编码必杀技)</h2>
+        <h6 data-test="test123">(编码必杀技)</h6>
         <div>
             嵌套1 <div>嵌套 1.1</div>
         </div>

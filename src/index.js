@@ -3,13 +3,13 @@ import TinyReact from "./TinyReact";
 
 const root = document.getElementById('root')
 
-let code = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJbLTEsMzE4NDk4Mzc2MjYzNzQ0LC0xLDExNCxcImRiXzZfa2V5X3NwcmluZ1wiLDEwMDE0MDAxLG51bGwsXCIxXCIsbnVsbF0iLCJleHAiOjE2MjA4NzYwNzQsImlhdCI6MTYyMDg3NTk1NH0.Q8kLRKRy_L9H0d4Pqi0fKcrO06DOPtMA3bRQg04pZFplZDJzC0lU0zgpGB6W8FwMQzd3V33rjSkyVx8_F1vN6Q'
+let code = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJbLTEsMzE5MzkzODQ5Njk2MjU2LC0xLDExNCxcImRiXzZfa2V5X3NwcmluZ1wiLDEwMDE0MDAxLG51bGwsXCIwXCIsMzE4NDk4Mzc2MjYzNzQ0XSIsImV4cCI6MTYyMDg5Njg1NSwiaWF0IjoxNjIwODk2NzM1fQ.zsHcAXRm_2CA1Rk4os7pTY7GV0UWStbm9gMP3rYk59XhAhjLh4POGlu7QTLMBH5skPjUanHoYaDF5jNsXomNyA'
 let page = 'ttk-edf-app-dzgl-portal'
 let dljgOrgId = '318498376263744'
 let loginUserId = '318495088212032'
 
 const openNewTag = () =>{
-    let url = `http://172.16.30.66:8081/#/edfx-app-root/simplelogin?appkey=${10005902}&page=${page}&code=${code}&orgIds=%5B319393849696256%5D&loginUserId=${loginUserId}&dljgOrgId=${dljgOrgId}`
+    let url = `http://172.16.30.66:8081/#/edfx-app-root/simplelogin?appkey=${10014001}&page=${page}&code=${code}&orgIds=%5B319393849696256%5D&loginUserId=${loginUserId}&dljgOrgId=${dljgOrgId}`
     console.log(url)
     
     // window.open(url)
@@ -48,11 +48,11 @@ const modifyDOM = (
     </div>
 )
 
-TinyReact.render(virtualDOM, root)
+// TinyReact.render(virtualDOM, root)
 
-setTimeout(()=>{
-    TinyReact.render(modifyDOM, root)
-},2000)
+// setTimeout(()=>{
+//     TinyReact.render(modifyDOM, root)
+// },2000)
 
 function Demo(){
     return <div>hello</div>
@@ -62,7 +62,7 @@ function Heart(props){
     <div> 
         {props.title}
         &hearts; 
-        < Demo / > 
+        < Demo /> 
     </div>)
 }
 
@@ -71,16 +71,30 @@ function Heart(props){
 class Alert extends TinyReact.Component {
     constructor(props){
         super(props)
+        this.state = {
+            title:'Default Title'
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick (){
+        console.log('00')
+        this.setState({title:'new Title'})
     }
     render(){
+        console.log(this.state)
         return (
             <div> 
             {this.props.name}
             {this.props.age}
+            <div>
+                {this.state.title}
+                <button onClick={this.handleClick}>改变</button>
+            </div>
+
             </div>
         )
     }
 }
 
 
-{/* TinyReact.render(<Alert name="张三" age={20}/>, root) */}
+TinyReact.render(<Alert name="张三" age={20}/>, root)
